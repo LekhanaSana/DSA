@@ -1,0 +1,16 @@
+nums = [1, 2, 3, 1]
+k = 3
+
+seen = {}
+found = False
+
+for i in range(len(nums)):
+    if nums[i] in seen:
+        if i - seen[nums[i]] <= k:
+            found = True
+            break
+
+    seen[nums[i]] = i
+
+print(found)
+
