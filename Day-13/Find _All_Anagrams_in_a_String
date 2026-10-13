@@ -1,0 +1,44 @@
+s = "cbaebabacd"
+p = "abc"
+
+result = []
+
+if len(p) <= len(s):
+    p_count = {}
+    window = {}
+
+    for ch in p:
+        if ch in p_count:
+            p_count[ch] += 1
+        else:
+            p_count[ch] = 1
+
+    for i in range(len(p)):
+        ch = s[i]
+
+        if ch in window:
+            window[ch] += 1
+        else:
+            window[ch] = 1
+
+    if window == p_count:
+        result.append(0)
+
+    for right in range(len(p), len(s)):
+        new_char = s[right]
+
+        if new_char in window:
+            window[new_char] += 1
+        else:
+            window[new_char] = 1
+
+        old_char = s[right - len(p)]
+        window[old_char] -= 1
+
+        if window[old_char] == 0:
+            del window[old_char]
+
+        if window == p_count:
+            result.append(right - len(p) + 1)
+
+print(result)
