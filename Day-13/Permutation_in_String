@@ -1,0 +1,27 @@
+s1 = "ab"
+s2 = "eidbaooo"
+
+found = False
+
+for i in range(len(s2) - len(s1) + 1):
+    window = {}
+
+    for ch in s2[i:i + len(s1)]:
+        if ch in window:
+            window[ch] += 1
+        else:
+            window[ch] = 1
+
+    count = {}
+
+    for ch in s1:
+        if ch in count:
+            count[ch] += 1
+        else:
+            count[ch] = 1
+
+    if window == count:
+        found = True
+        break
+
+print(found)
