@@ -1,0 +1,23 @@
+s = "tree"
+count = {}
+for ch in s:
+    if ch in count:
+        count[ch] += 1
+    else:
+        count[ch] = 1
+
+chars = list(count)
+
+for i in range(len(chars)):
+    for j in range(i + 1, len(chars)):
+        if count[chars[j]] > count[chars[i]]:
+            temp = chars[i]
+            chars[i] = chars[j]
+            chars[j] = temp
+
+result = ""
+
+for ch in chars:
+    result += ch * count[ch]
+
+print(result)
