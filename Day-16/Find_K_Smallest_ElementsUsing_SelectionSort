@@ -1,0 +1,13 @@
+arr = [7, 2, 9, 4, 1, 5]
+k = 3
+
+for i in range(k):
+    smallest = i
+    for j in range(i + 1, len(arr)):
+        if arr[j] < arr[smallest]:
+            smallest = j
+    temp = arr[i]
+    arr[i] = arr[smallest]
+    arr[smallest] = temp
+
+print(arr[:k])
