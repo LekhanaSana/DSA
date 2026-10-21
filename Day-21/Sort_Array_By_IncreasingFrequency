@@ -1,0 +1,19 @@
+nums = [1, 1, 2, 2, 2, 3]
+count = {}
+
+for num in nums:
+    if num in count:
+        count[num] += 1
+    else:
+        count[num] = 1
+
+for i in range(len(nums)):
+    for j in range(i + 1, len(nums)):
+        if count[nums[j]] < count[nums[i]]:
+            nums[i], nums[j] = nums[j], nums[i]
+
+        elif count[nums[j]] == count[nums[i]]:
+            if nums[j] > nums[i]:
+                nums[i], nums[j] = nums[j], nums[i]
+
+print(nums)
