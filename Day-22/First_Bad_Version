@@ -1,0 +1,16 @@
+n = 5
+first_bad = 4
+
+lo = 1
+hi = n
+
+while lo < hi:
+    mid = lo + (hi - lo) // 2
+
+    # Simulates the isBadVersion(mid) API
+    if mid >= first_bad:
+        hi = mid
+    else:
+        lo = mid + 1
+
+print(lo)
