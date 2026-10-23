@@ -1,0 +1,20 @@
+n = 10
+secret = 6
+
+lo = 1
+hi = n
+answer = -1
+
+while lo <= hi:
+    mid = lo + (hi - lo) // 2
+
+    # Simulates the guess(mid) API
+    if mid == secret:
+        answer = mid
+        break
+    elif mid > secret:
+        hi = mid - 1
+    else:
+        lo = mid + 1
+
+print(answer)
