@@ -1,0 +1,20 @@
+num = 16
+
+lo = 0
+hi = num
+found = False
+
+while lo <= hi:
+    mid = lo + (hi - lo) // 2
+
+    square = mid * mid
+
+    if square == num:
+        found = True
+        break
+    elif square < num:
+        lo = mid + 1
+    else:
+        hi = mid - 1
+
+print(found)
