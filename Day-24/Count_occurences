@@ -1,0 +1,41 @@
+
+nums = [1, 2, 2, 2, 3, 4]
+target = 2
+
+# Find first occurrence
+lo = 0
+hi = len(nums) - 1
+first = -1
+
+while lo <= hi:
+    mid = (lo + hi) // 2
+
+    if nums[mid] == target:
+        first = mid
+        hi = mid - 1
+    elif nums[mid] < target:
+        lo = mid + 1
+    else:
+        hi = mid - 1
+
+# Find last occurrence
+lo = 0
+hi = len(nums) - 1
+last = -1
+
+while lo <= hi:
+    mid = (lo + hi) // 2
+
+    if nums[mid] == target:
+        last = mid
+        lo = mid + 1
+    elif nums[mid] < target:
+        lo = mid + 1
+    else:
+        hi = mid - 1
+
+if first == -1:
+    print(0)
+else:
+    print(last - first + 1)
+
